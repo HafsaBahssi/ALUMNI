@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+   <html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+      <!--=============== REMIXICONS ===============-->
+      <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+      <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+      <!--=============== CSS ===============-->
+      <link rel="stylesheet" href="register.css">
+
+      <title>Animated login form - Bedimcode</title>
+   </head>
+   <body>
+      <div class="login">
+         <img src="../images/bg.jpg" alt="login image" class="login__img">
+
+         <form action="" class="login__form">
+            <h1 class="login__title">Register</h1>
+
+            <div class="login__content">
+               <div class="login__box">
+                  <i class="ri-user-3-line login__icon"></i>
+
+                  <div class="login__box-input">
+                     <input type="text" required class="login__input" id="login-username" placeholder=" " autocomplete="off">
+                     <label for="login-email" class="login__label">Username</label>
+                  </div>
+               </div>
+
+               <div class="login__box">
+                <iconify-icon icon="entypo:email"></iconify-icon>
+
+                  <div class="login__box-input">
+                     <input type="email" required class="login__input" id="login-email" placeholder=" ">
+                     <label for="login-email" class="login__label">Email</label>
+                  </div>
+               </div>
+               <div class="login__box">
+                <i class="ri-lock-2-line login__icon"></i>
+
+                <div class="login__box-input">
+                   <input type="text" required class="login__input" id="login-pass" placeholder=" ">
+                   <label for="login-pass" class="login__label">Password</label>
+                </div>
+             </div>
+            </div>
+
+
+            <button  class="login__button" id="register" >Register</button>
+
+         </form>
+      </div>
+      <script type="module">
+                // Import the functions you need from the SDKs you need
+                import { initializeApp } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
+                import { getAuth, createUserWithEmailAndPassword,signInWithEmailAndPassword  } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-auth.js";
+                import { getDatabase, ref, set, get, child } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js";
+
+                // Your web app's Firebase configuration
+                const firebaseConfig = {
+                            apiKey: "AIzaSyDZWOTCQhfVcgg6wpbGChU5y764uwUkNWE",
+                            authDomain: "um5s-3a7a7.firebaseapp.com",
+                            databaseURL: "https://um5s-3a7a7-default-rtdb.firebaseio.com",
+                            projectId: "um5s-3a7a7",
+                            storageBucket: "um5s-3a7a7.appspot.com",
+                            messagingSenderId: "726053879511",
+                            appId: "1:726053879511:web:678eaf165ef3814a1a7a92",
+                            measurementId: "G-R6N43CFYND"
+};
+
+                // Initialize Firebase
+                const app = initializeApp(firebaseConfig);
+               
+                //get ref to database services
+                const auth = getAuth();
+               const db= getDatabase();
+                document.getElementById("register").addEventListener('click', function(e){
+                        e.preventDefault();
+                         const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+                        let name = document.getElementById("login-username").value;
+                        let email = document.getElementById("login-email").value;
+                        let password = document.getElementById("login-pass").value;
+                         createUserWithEmailAndPassword(auth,email,password)
+                         .then((userCredential)=>{
+                            
+                            set(ref(db,'UsersAuthList/'+userCredential.user.uid),{
+                              username:name
+                            })
+                            Swal.fire({
+                                title: "Account Created",
+                                 text: "Your account has been created successfully! Sign in now",
+                                 icon: "success"
+                            
+                        }).then(() => {
+                            window.location.href = '../login/login.html';
+                    });
+                         })   
+                         .catch((error)=>{
+                            alert(error.message);
+                         })
+                })
+                    </script>
+     
+   </body>
+</html>
