@@ -107,7 +107,7 @@ img {
   z-index: 1;
 }
 .login__input1 {
-  width: 50%;
+  width: 100%;
   padding-block: 0.8rem;
   background: none;
   color: var(--white-color);

@@ -1,6 +1,105 @@
-body{
-    scroll-behavior: smooth;
+
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500&display=swap");
+
+*, *:before, *:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
 }
+
+
+
+.navwrapper {
+    position: fixed;
+    top: 13%;
+    left: 0;
+    width:10px;
+    display: flex;
+    gap: 1rem;
+    z-index: 1; /* Pour s'assurer que le navwrapper est au-dessus du contenu */
+}
+
+.nave {
+	width: min-content;
+	display: flex;
+	flex-direction: column;
+	background: #ffffff;
+	border-radius: 1rem;
+	padding: 0.5rem;
+	box-shadow: rgba(0,0,0, 0.2) 0px 7px 29px 0px;
+}
+.navbutton {
+	position: relative;
+	display: flex;
+	width: 3.5rem;
+	height: 3.5rem;
+	border-radius: 0.5rem;
+	overflow: hidden;
+	isolation: isolate;
+	transition: width 300ms;
+}
+.nave:has(.navbutton:hover) > .navbutton,
+.nave.demoanim > .navbutton {
+	width: 14rem;
+}
+.navbutton:after {
+	position: absolute;
+	content: "";
+	inset: 1rem;
+	background: rgb(60,118,200);
+	border-radius: 0.5rem;
+	z-index: -2;
+	opacity: 0;
+	transition: inset 300ms, opacity 300ms;
+}
+.navbutton:hover:after,
+.nave.demoanim .navbutton.demoanimhover:after {
+	inset: 0;
+	opacity: 1;
+}
+.navicon {
+	flex-shrink: 0;
+	position: relative;
+	width: 3.5rem;
+	display: grid;
+	place-content: center;
+	padding-bottom: 0.125rem;
+	font-size: 1.375rem;
+	--ionicon-stroke-width: 40px;
+	color: rgb(21, 0, 80);
+}
+.navicon:after {
+	position: absolute;
+	content: "";
+	inset: 1rem;
+	background: rgb(60,118,200);
+	border-radius: 0.5rem	0 0 0.5rem;
+	z-index: -1;
+	opacity: 0;
+	transition: inset 300ms, opacity 300ms, border-radius 300ms ease;
+}
+
+.nave:not(:has(.navbutton:hover), .demoanim) .navbutton.selected > .navicon:after{
+	inset: 0;
+	opacity: 1;
+	border-radius: 0.5rem;
+}
+.navbutton:hover > .navicon:after,
+.nave.demoanim .navbutton.demoanimhover > .navicon:after{
+	inset: 0;
+	opacity: 1;
+}
+.navlabel {
+	flex-shrink: 0;
+	display: grid;
+	place-content: center;
+	padding-bottom: 0.125rem;
+	padding-left: 0.5rem;
+	font-size: 1.125rem;
+	color: rgb(21, 0, 80);
+}
+
 header{
     background-color:white ;
     position: fixed;
@@ -30,12 +129,13 @@ h1{
     padding-top: 5rem;
 }
  .dropdown-menu{
-  background-color: rgb(60,118,200);
+  background-color: white;
+  color:rgb(21, 0, 80);
 
 }
 .dropdown-menu :hover{
     width: 90%;
-    background-color: #fbe074;
+    background-color:rgb(60,118,200)    ;
     
 }
 /*****HOME****/
@@ -78,11 +178,9 @@ h1{
 /**********Viedeo*********/
 .us {
     background-image: none;
-    width: 100%;
 }
 .heading{
     text-align: center;
-    width: 100%;
     font-size: 4rem;
     color: rgb(60,118,200);
     padding: 1rem;
