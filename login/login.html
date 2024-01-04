@@ -65,7 +65,7 @@
                 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
                 import { getAuth, createUserWithEmailAndPassword,signInWithEmailAndPassword  } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-auth.js";
                 import { getDatabase, ref, set, get, child } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js";
-
+               
                 // Your web app's Firebase configuration
                 const firebaseConfig = {
                             apiKey: "AIzaSyDZWOTCQhfVcgg6wpbGChU5y764uwUkNWE",
@@ -76,11 +76,11 @@
                             messagingSenderId: "726053879511",
                             appId: "1:726053879511:web:678eaf165ef3814a1a7a92",
                             measurementId: "G-R6N43CFYND"
-};
+               };
 
                 // Initialize Firebase
                 const app = initializeApp(firebaseConfig);
-               
+            
                 //get ref to database services
                 const auth = getAuth();
                   const db=getDatabase();
@@ -102,6 +102,7 @@
                         }
                        })
                        
+                       
                     })
                     .catch((error) => {
                const errorCode = error.code;
@@ -118,6 +119,28 @@
                 
                 
                 })
+                     function test_info(user) {
+                     // Import the necessary modules within the function scope
+
+                     // Reference to the Realtime Database
+                     const db = getDatabase();
+                     const dbref = ref(db);
+
+                     // Retrieve user data from the database
+                     get(child(dbref, 'UsersAuthList/' + user.uid))
+                        .then((snapshot) => {
+                              var userData = snapshot.val();
+                              if (userData.birthDay) {
+                                 window.location.href = '../home/home.html';
+                              } else {
+                                 window.location.href = '../info_profile/info.html';
+                              }
+                        })
+                        .catch((error) => {
+                              console.log("Error getting user data:", error);
+                        });
+               }
+
                     </script>
       <!--=============== MAIN JS ===============-->
       <script src="login.js"></script>

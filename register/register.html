@@ -73,7 +73,6 @@
 
                 // Initialize Firebase
                 const app = initializeApp(firebaseConfig);
-               
                 //get ref to database services
                 const auth = getAuth();
                const db= getDatabase();
@@ -88,7 +87,22 @@
                          .then((userCredential)=>{
                             
                             set(ref(db,'UsersAuthList/'+userCredential.user.uid),{
-                              username:name
+                              username:name,
+                              birthDay:"",
+                              email:email,
+                              tel:"",
+                              genre:"",
+                              adresse:"",
+                              cin:"",
+                              cne:"",
+                              university:"",
+                              ecole:"",
+                              filiere:"",
+                              inscripyear:"",
+                              promotion:"",
+                              poste:"",
+                              profileImageUrl:""
+
                             })
                             Swal.fire({
                                 title: "Account Created",

@@ -1,0 +1,458 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    <title>Document</title>
+    <link rel="stylesheet" href="show.css">
+
+</head>
+<body >
+       <!-----***************************Preloader de la page************************--> 
+    <div class="loader_bg">
+        <div class="loader"> </div>
+    </div>
+     <!--Le script de Preloader du site -->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+     <script>
+         setTimeout(function(){
+             $('.loader_bg').fadeToggle();
+         }, 1000);
+     </script>
+    <!-----***************************Header************************--> 
+    <header>
+        <script src="show.js"></script>
+        <img src="../images/logo2-removebg-preview.png" class="icon" alt="">
+        <ul class="nav justify-content-end">
+
+            <li class="nav-item dropdown">
+                <a class="nav-link " href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: 1.3rem;">
+                    <div style="display: flex; align-items: center;">
+                        <img class="img-account-profile rounded-circle mb-2" src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="" id="profile-image" style="width: 50px;">
+                        <p id="name" style="margin-left: 0.5rem; margin-bottom: 0;"></p>
+                    </div>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown" >
+                    <!-- Contenu du menu déroulant -->
+                   
+                    <a class="dropdown-item" href="#">Compte</a> 
+                    <a class="dropdown-item" href="#" id="signout"  >Deconnexion</a>
+                   
+                </div>
+            </li>
+          </ul>
+    </header>
+  <!-----***************************SIDEBAR************************--> 
+  <div class="navwrapper">
+    <div class="nave secondnav" style="display: none;">
+        <div class="navbutton selected">
+            <div class="navicon">
+                <iconify-icon icon="material-symbols:home-outline"></iconify-icon>
+            </div>
+            <div class="navlabel">
+                Home
+            </div>
+        </div>
+        <div class="navbutton demoanimhover">
+            <div class="navicon">
+                <iconify-icon icon="material-symbols:search"></iconify-icon>
+            </div>
+            <div class="navlabel">
+                Search
+            </div>
+        </div>
+        <div class="navbutton">
+            <div class="navicon">
+                <iconify-icon icon="codicon:account" ></iconify-icon>
+            </div>
+            <div class="navlabel">
+                Edit Profile
+            </div>
+        </div>
+    </div>
+    <div class="nave mainnav">
+        <div class="navbutton selected">
+            <div class="navicon">
+                <iconify-icon icon="material-symbols:home-outline"></iconify-icon>
+            </div>
+            <div class="navlabel">
+                <a href="../home/home.html" style=" text-decoration: none;color:rgb(21, 0, 80);" >Home</a> 
+            </div>
+        </div>
+        <div class="navbutton demoanimhover">
+            <div class="navicon">
+                <iconify-icon icon="material-symbols:search"></iconify-icon>
+            </div>
+            <div class="navlabel">
+                <a href="../info_profile/info.html" style=" text-decoration: none;color:rgb(21, 0, 80);">Search</a>
+            </div>
+        </div>
+        <div class="navbutton">
+            <div class="navicon">
+                <iconify-icon icon="codicon:account" ></iconify-icon>
+            </div>
+            <div class="navlabel">
+              <a href="../info_profile/info.html" style=" text-decoration: none;color:rgb(21, 0, 80);"> Edit Profile</a>  
+            </div>
+        </div>
+    </div>
+</div>
+     <!-----***************************FORM************************--> 
+ <section class="formulaire">
+       
+    <div class="container">
+         <h1 class="heading" >
+            <span>Formulaire</span>
+        </h1>
+        <form id="profile-form">
+            <div class="form first">
+                <div class="details personal">
+                    <span class="title">Informations Personnelles</span>
+                    <div class="fields">
+                        <div class="input-field">
+                            <label for="namee"> Nom Complet</label>
+                            <input type="text" id="namee" required autocomplete="off" readonly >
+                        </div>
+
+                        <div class="input-field">
+                            <label for="date"> Date de naissance</label>
+                            <input type="date" placeholder="Entrer Votre Date de naissance" id="date" required autocomplete="off" readonly>
+                        </div>
+
+                        <div class="input-field">
+                            <label for="email"> Email</label>
+                            <input type="email" placeholder="Entrer Votre adresse mail" id="email" required autocomplete="off" readonly >
+                        </div>
+                        <div class="input-field">
+                            <label for="tel"> Telephone</label>
+                            <input type="tel" placeholder="Entrer Votre tel" id="tel" required autocomplete="off" readonly >
+                        </div>
+
+                        <div class="input-field">
+                            <label for="genre"> Genre</label>
+                            <input type="text" placeholder="Entrer Votre genre" id="genre" required autocomplete="off" readonly >
+                        </div>
+                        <div class="input-field">
+                            <label for="adress"> Adresse</label>
+                            <input type="text" placeholder="Entrer Votre adresse" id="adress" required autocomplete="off" readonly >
+                        </div>
+                        <div class="input-field">
+                            <label for="Identite"> CIN</label>
+                            <input type="text" placeholder="Entrer Votre CIN" id="Identite" required autocomplete="off" readonly >
+                        </div>
+                        
+                        
+                    </div>
+                </div>
+                <button class="nextBtn">
+                    <span class="btnText">Suivant</span>
+                    <iconify-icon icon="uil:navigator"></iconify-icon>
+                </button>
+
+        
+            </div>
+            <div class="form second">
+                <div class="details academic">
+                    <span class="title">Informations Academiques</span>
+                    <div class="fields">
+                        <div class="input-field">
+                            <label for="cne"> CNE</label>
+                            <input type="text" placeholder="Entrer Votre CNE" id="cne" required autocomplete="off"readonly >
+                        </div>
+
+                        <div class="input-field">
+                            <label for="university"> Université</label>
+                            <input type="text" placeholder="Entrer Votre Université" id="university" required autocomplete="off" readonly >
+                        </div>
+
+                        <div class="input-field">
+                            <label for="school"> Ecole</label>
+                            <input type="text" placeholder="Entrer Votre Ecole" id="school" required autocomplete="off" readonly >
+                        </div>
+                        <div class="input-field">
+                            <label for="fil"> Filiére</label>
+                            <input type="text" placeholder="Entrer Votre filiére" id="fil" required autocomplete="off"  readonly>
+                        </div>
+
+                        <div class="input-field">
+                            <label for="anne-inscription"> Année d'inscription</label>
+                            <input type="text" placeholder="Entrer Votre année d'inscription" id="anne-inscription" required  autocomplete="off" readonly >
+                        </div>
+
+                        <div class="input-field">
+                            <label for="anne-diplom"> Année de diplomation</label>
+                            <input type="text" placeholder="Entrer Votre année de diplomation" id="anne-diplom"  autocomplete="off"  readonly>
+                        </div>
+
+                        <div class="input-field">
+                            <label for="poste"> Poste de travail</label>
+                            <input type="text" placeholder="Entrer Votre poste de travail" id="poste"  autocomplete="off" readonly >
+                        </div>
+
+                        
+                    </div>
+                </div>
+                <div class="buttons">
+                    <div class="backBtn">
+                        <iconify-icon icon="uil:navigator"></iconify-icon>
+                        <span class="btnText">Précédent</span>
+                        
+                    </div>
+                    <button class="nextBtn2">
+                        <span class="btnText" class="submit" id="enregistrer" type="submit">OK</span>
+                        <iconify-icon icon="uil:navigator"></iconify-icon>
+                    </button>
+                 </div>
+            </div>
+        </form>
+        
+    </div>
+
+</section>
+
+
+    <!-----***************************FOOTER************************--> 
+    <div class="footer-basic">
+        <footer>
+            <div class="social"><a href="https://www.instagram.com/um5rabat/"><iconify-icon icon="fluent-mdl2:website"></iconify-icon></a><a href="http://www.um5.ac.ma/um5/"><i class="icon ion-social-snapchat"></i></a><a href="https://twitter.com/um5rabat?lang=fr"><i class="icon ion-social-twitter"></i></a><a href="https://www.facebook.com/groups/2086177608373411"><i class="icon ion-social-facebook"></i></a></div>
+            <ul class="list-inline">
+                <li class="list-inline-item"><a href="../home/home.html">Home</a></li>
+                <li class="list-inline-item"><a href="#">Search</a></li>
+                <li class="list-inline-item"><a href="info.html">Profile</a></li>
+                
+            </ul>
+            <p class="copyright">ALUMNI © 2024</p>
+        </footer>
+    </div>
+    <script src="show.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+</body>
+<script>
+    
+            $(document).ready(function() {
+                $('a[href^="#"]').on('click', function(event) {
+                    event.preventDefault();
+                    var target = this.hash;
+                    $('html, body').animate({
+                        scrollTop: $(target).offset().top
+                    }, 800, function(){
+                        window.location.hash = target;
+                    });
+                });
+            });
+            
+            let UserCreds=JSON.parse(sessionStorage.getItem("user-creds"));
+            let UserInfo=JSON.parse(sessionStorage.getItem("user-info"));
+            let Msghead=document.getElementById('msg');
+            let Greethead=document.getElementById('greet');
+            let Signoutbtn=document.getElementById('signout');
+            let name=document.getElementById('name');
+            let namee=document.getElementById('namee');
+            let submit=document.getElementById("enregistrer")
+
+            let Signoutfct=()=>{
+                    sessionStorage.removeItem("user-creds");
+                    sessionStorage.removeItem("user-info");
+                    window.location.href = '../login/login.html';
+            }
+                        
+            let CheckCred=()=>{
+                        if(!sessionStorage.getItem("user-creds"))
+                            window.location.href = '../login/login.html';
+                        else{
+                            
+                            name.innerText= UserInfo.username.toUpperCase();
+                            
+            
+                            /* Swal.fire({
+                                    icon: "success",
+                                    title:   "Welcome "+UserInfo.username,
+                                    showConfirmButton: false,
+                                    timer: 1500
+                                });*/
+                            
+                        }
+            }
+            var firebaseConfig = {
+                                apiKey: "AIzaSyDZWOTCQhfVcgg6wpbGChU5y764uwUkNWE",
+                                authDomain: "um5s-3a7a7.firebaseapp.com",
+                                databaseURL: "https://um5s-3a7a7-default-rtdb.firebaseio.com",
+                                projectId: "um5s-3a7a7",
+                                storageBucket: "um5s-3a7a7.appspot.com",
+                                messagingSenderId: "726053879511",
+                                appId: "1:726053879511:web:678eaf165ef3814a1a7a92",
+                                measurementId: "G-R6N43CFYND"
+                            };
+            firebase.initializeApp(firebaseConfig);
+            var db = firebase.database();
+            window.onload = function() {
+                /*document.getElementById('namee').value=UserInfo.username.toUpperCase();*/
+                firebase.auth().onAuthStateChanged(function(user) {
+                if (user) {
+                        getUserProfile(user.uid);
+                } else {
+                    window.location.href = '../login/login.html';
+            }
+             });
+            }
+          
+        document.getElementById('profile-form').addEventListener('submit', function(event) {
+                    event.preventDefault();
+                    var username = document.getElementById('namee').value;
+                    var cin = document.getElementById('Identite').value;
+                    var cne = document.getElementById('cne').value;
+                    var gender = document.getElementById('genre').value;
+                    var phoneNumber = document.getElementById('tel').value;
+                    var adress = document.getElementById('adress').value;
+                    var birthDate = document.getElementById('date').value;
+                    var promotion = document.getElementById('anne-diplom').value;
+                    var filiere = document.getElementById('fil').value;
+                    var work = document.getElementById('poste').value;
+                    var Ecole = document.getElementById('school').value;
+                    var Email = document.getElementById('email').value;
+                    var univ = document.getElementById('university').value;
+                    var inscrip = document.getElementById('anne-inscription').value; 
+                    var imageFile = document.getElementById('profile-image-input').files[0];
+                    if(imageFile) {
+                        uploadImageToFirebase(imageFile).then(imageURL => {
+                                saveUserProfile({
+                                            username:namee,
+                                            birthDay:birthDate,
+                                            email:email,
+                                            tel:phoneNumber,
+                                            genre:gender,
+                                            adresse:adress,
+                                            cin:cin,
+                                            cne:cne,
+                                            university:univ,
+                                            ecole:Ecole,
+                                            filiere:filiere,
+                                            inscripyear:inscrip,
+                                            promotion:promotion,
+                                            poste:work,
+                                            profileImageUrl:imageURL
+                                });
+                           
+                    }).catch(error => {
+                              console.error("Error uploading image: ", error);
+                    });
+                } else {
+                    saveUserProfile({
+                                        username:namee,
+                                        birthDay:birthDate,
+                                        email:email,
+                                        tel:phoneNumber,
+                                        genre:gender,
+                                        adresse:adress,
+                                        cin:cin,
+                                        cne:cne,
+                                        university:univ,
+                                        ecole:Ecole,
+                                        filiere:filiere,
+                                        inscripyear:inscrip,
+                                        promotion:promotion,
+                                        poste:work,
+                                        
+                                });
+                }                
+        });
+        let retour=()=>{
+                        
+                            window.location.href = '../home/home.html';
+                        
+            }
+        submit.addEventListener('click',retour);
+        function saveUserProfile(userData) {
+                var user = firebase.auth().currentUser;
+                if (user) {
+                    console.log("Saving user profile for user:", user.uid); 
+                    console.log("User data being saved:", userData); 
+                      return firebase.database().ref('users/' + user.uid).set(userData)
+                        .then(function() {
+                            Swal.fire({
+                                    icon: "success",
+                                    title:   "Les informations sont enregistrer avec Succes ",
+                                    showConfirmButton: false,
+                                    timer: 1500
+                                })
+                        })
+                        .catch(function(error) {
+                            console.error("Error saving user data: ", error);
+
+                        });
+                } else {
+                    console.log("No user is signed in.");
+                }
+        }
+
+        
+        function uploadImageToFirebase(imageFile) {
+            return new Promise((resolve, reject) => {
+                var storageRef = firebase.storage().ref('profile_images/' + imageFile.name);
+                storageRef.put(imageFile).then(function(snapshot) {
+                    snapshot.ref.getDownloadURL().then(function(url) {
+                        resolve(url);
+                    });
+                }).catch(function(error) {
+                    reject(error);
+                });
+            });
+        }
+
+
+            window.addEventListener('load',CheckCred);
+            Signoutbtn.addEventListener('click',Signoutfct);
+
+            function getUserProfile(uid) {
+                firebase.database().ref('users/' + uid).once('value').then(function(snapshot) {
+                    var userData = snapshot.val();
+                    if (userData) {
+                        
+                        document.getElementById('Identite').value=userData.cin || '';
+                        document.getElementById('cne').value=userData.cne || '';
+                        document.getElementById('genre').value= userData.genre || '';
+                        document.getElementById('tel').value= userData.tel || '';
+                        document.getElementById('adress').value= userData.adresse || '';
+                        document.getElementById('date').value= userData.birthDay || '';
+                        document.getElementById('anne-diplom').value= userData.promotion || '';
+                        document.getElementById('fil').value = userData.filiere || '';
+                        document.getElementById('poste').value = userData.work || '';
+                        document.getElementById('school').value= userData.ecole || '';
+                        
+                        document.getElementById('university').value= userData.university || '';
+                        document.getElementById('anne-inscription').value= userData.inscripyear || '';
+                        if (userData.profileImageUrl) {
+                            document.getElementById('profile-image').src = userData.profileImageUrl;
+                        } else {
+                            document.getElementById('profile-image').src = 'http://bootdey.com/img/Content/avatar/avatar1.png';
+                        }
+                        console.log("le nom est",document.getElementById('namee').value)
+                    }
+                }).catch(function(error) {
+                    console.log("Error getting user data:", error);
+                });
+                firebase.database().ref('UsersAuthList/' + uid).once('value').then(function(snapshot) {
+                    var userData = snapshot.val();
+                    document.getElementById('namee').value=userData.username.toUpperCase() || '';
+                    document.getElementById('email').value= userData.email || '';
+                });
+            }  
+
+
+
+</script>
+
+</html>
