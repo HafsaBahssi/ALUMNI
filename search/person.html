@@ -1,0 +1,362 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+    
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+        <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+        <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+        <title>Document</title>
+        <link rel="stylesheet" href="person.css">
+    
+    </head>
+        <body >
+            <!-----***************************Preloader de la page************************--> 
+            <div class="loader_bg">
+            <div class="loader"> </div>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+            <script>
+                setTimeout(function(){
+                    $('.loader_bg').fadeToggle();
+                }, 1000);
+            </script>
+            </div>
+        <!-----***************************Header************************--> 
+            <header>
+            <script src="search.js"></script>
+            <img src="../images/logo2-removebg-preview.png" class="icon" alt="">
+            <ul class="nav justify-content-end">
+    
+                <li class="nav-item dropdown">
+                    <a class="nav-link " href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: 1.3rem;">
+                        <div style="display: flex; align-items: center;">
+                            <img class="img-account-profile rounded-circle mb-2" src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="" id="profile-image" style="width: 50px;">
+                            <p id="name" style="margin-left: 0.5rem; margin-bottom: 0;"></p>
+                        </div>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown" >
+                        <!-- Contenu du menu déroulant -->
+                        
+                        <a class="dropdown-item" href="../show_info/show.html">Compte</a> 
+                        <a class="dropdown-item" href="#" id="signout"  >Deconnexion</a>
+                        
+                    </div>
+                </li>
+                </ul>
+            </header>
+        <!-----***************************SIdebar************************--> 
+
+            <div class="navwrapper">
+            <div class="nave secondnav" style="display: none;">
+                <div class="navbutton selected">
+                    <div class="navicon">
+                        <iconify-icon icon="material-symbols:home-outline"></iconify-icon>
+                    </div>
+                    <div class="navlabel">
+                        Home
+                    </div>
+                </div>
+                <div class="navbutton demoanimhover">
+                    <div class="navicon">
+                        <iconify-icon icon="material-symbols:search"></iconify-icon>
+                    </div>
+                    <div class="navlabel">
+                        Search
+                    </div>
+                </div>
+                <div class="navbutton">
+                    <div class="navicon">
+                        <iconify-icon icon="codicon:account" ></iconify-icon>
+                    </div>
+                    <div class="navlabel">
+                        Edit Profile
+                    </div>
+                </div>
+            </div>
+            <div class="nave mainnav">
+                <div class="navbutton selected">
+                    <div class="navicon">
+                        <iconify-icon icon="material-symbols:home-outline"></iconify-icon>
+                    </div>
+                    <div class="navlabel">
+                        <a href="../home/home.html" style=" text-decoration: none;color:rgb(21, 0, 80);" >Home</a> 
+                    </div>
+                </div>
+                <div class="navbutton demoanimhover">
+                    <div class="navicon">
+                        <iconify-icon icon="material-symbols:search"></iconify-icon>
+                    </div>
+                    <div class="navlabel">
+                        <a href="../search/search.html" style=" text-decoration: none;color:rgb(21, 0, 80);">Search</a>
+                    </div>
+                </div>
+                <div class="navbutton">
+                    <div class="navicon">
+                        <iconify-icon icon="codicon:account" ></iconify-icon>
+                    </div>
+                    <div class="navlabel">
+                        <a href="../info_profile/info.html" style=" text-decoration: none;color:rgb(21, 0, 80);"> Edit Profile</a>  
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section class="formulaire">
+       
+            <div class="container">
+                 <h1 class="heading" >
+                    <span>Informations d'Etudiant</span>
+                </h1>
+                <form id="profile-form">
+                    <div class="form first">
+                        <div class="details personal">
+                            <span class="title">Informations Personnelles</span>
+                            <div class="fields">
+                                <div class="input-field">
+                                    <label for="namee"> Nom Complet</label>
+                                    <input type="text" id="namee" required autocomplete="off" readonly >
+                                </div>
+        
+                                <div class="input-field">
+                                    <label for="date"> Date de naissance</label>
+                                    <input type="date" placeholder="Entrer Votre Date de naissance" id="date" required autocomplete="off" readonly>
+                                </div>
+        
+                               
+                                <div class="input-field">
+                                    <label for="tel"> Telephone</label>
+                                    <input type="tel" placeholder="Entrer Votre tel" id="tel" required autocomplete="off" readonly >
+                                </div>
+        
+                                <div class="input-field">
+                                    <label for="genre"> Genre</label>
+                                    <input type="text" placeholder="Entrer Votre genre" id="genre" required autocomplete="off" readonly >
+                                </div>
+                                <div class="input-field">
+                                    <label for="adress"> Adresse</label>
+                                    <input type="text" placeholder="Entrer Votre adresse" id="adress" required autocomplete="off" readonly >
+                                </div>
+                                <div class="input-field">
+                                    <label for="Identite"> CIN</label>
+                                    <input type="text" placeholder="Entrer Votre CIN" id="Identite" required autocomplete="off" readonly >
+                                </div>
+                                
+                                
+                            </div>
+                        </div>
+                      
+        
+                
+                    
+                    
+                        <div class="details academic">
+                            <span class="title">Informations Academiques</span>
+                            <div class="fields">
+                                <div class="input-field">
+                                    <label for="cne"> CNE</label>
+                                    <input type="text" placeholder="Entrer Votre CNE" id="cne" required autocomplete="off"readonly >
+                                </div>
+        
+                                <div class="input-field">
+                                    <label for="university"> Université</label>
+                                    <input type="text" placeholder="Entrer Votre Université" id="university" required autocomplete="off" readonly >
+                                </div>
+        
+                                <div class="input-field">
+                                    <label for="school"> Ecole</label>
+                                    <input type="text" placeholder="Entrer Votre Ecole" id="school" required autocomplete="off" readonly >
+                                </div>
+                                <div class="input-field">
+                                    <label for="fil"> Filiére</label>
+                                    <input type="text" placeholder="Entrer Votre filiére" id="fil" required autocomplete="off"  readonly>
+                                </div>
+        
+                                <div class="input-field">
+                                    <label for="anne-inscription"> Année d'inscription</label>
+                                    <input type="text" placeholder="Entrer Votre année d'inscription" id="anne-inscription" required  autocomplete="off" readonly >
+                                </div>
+        
+                                <div class="input-field">
+                                    <label for="anne-diplom"> Année de diplomation</label>
+                                    <input type="text" placeholder="Entrer Votre année de diplomation" id="anne-diplom"  autocomplete="off"  readonly>
+                                </div>
+        
+                                <div class="input-field">
+                                    <label for="poste"> Poste de travail</label>
+                                    <input type="text" placeholder="Entrer Votre poste de travail" id="poste"  autocomplete="off" readonly >
+                                </div>
+        
+                                
+                            </div>
+                        </div>
+                        <div class="buttons">
+                            <button type="button"class="backBtn2" onclick="goBack()">
+                                <span class="btnText">Retour</span>
+                                <iconify-icon icon="uil:navigator"></iconify-icon>
+                            </button>
+                         </div>
+                    
+                </div>
+                </form>
+                
+            </div>
+        
+        </section>  
+
+        <!---***************************FOOTER************************--> 
+            <div class="footer-basic">
+            <footer>
+                <div class="social"><a href="https://www.instagram.com/um5rabat/"><iconify-icon icon="fluent-mdl2:website"></iconify-icon></a><a href="http://www.um5.ac.ma/um5/"><i class="icon ion-social-snapchat"></i></a><a href="https://twitter.com/um5rabat?lang=fr"><i class="icon ion-social-twitter"></i></a><a href="https://www.facebook.com/groups/2086177608373411"><i class="icon ion-social-facebook"></i></a></div>
+                <ul class="list-inline">
+                    <li class="list-inline-item"><a href="../home/home.html">Home</a></li>
+                    <li class="list-inline-item"><a href="#">Search</a></li>
+                    <li class="list-inline-item"><a href="info.html">Profile</a></li>
+                    
+                </ul>
+                <p class="copyright">ALUMNI © 2024</p>
+            </footer>
+            </div>
+        
+    </body>
+<script src="https://www.gstatic.com/firebasejs/6.0.2/firebase.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+<script>
+    $(document).ready(function() {
+            $('a[href^="#"]').on('click', function(event) {
+                event.preventDefault();
+                var target = this.hash;
+                $('html, body').animate({
+                    scrollTop: $(target).offset().top
+                }, 800, function(){
+                    window.location.hash = target;
+                });
+            });
+        });
+    let UserCreds=JSON.parse(sessionStorage.getItem("user-creds"));
+    let UserInfo=JSON.parse(sessionStorage.getItem("user-info"));
+    let Signoutbtn=document.getElementById('signout');
+    let name=document.getElementById('name');
+    
+    let Signoutfct=()=>{
+        sessionStorage.removeItem("user-creds");
+        sessionStorage.removeItem("user-info");
+        window.location.href = '../login/login.html';
+
+    }
+    let CheckCred=()=>{
+        if(!sessionStorage.getItem("user-creds"))
+        window.location.href = '../login/login.html';
+        else{
+            name.innerText= UserInfo.username.toUpperCase();
+            
+        }
+    }
+    /*****************************Les cards********************************/
+        var currentPage = 1;
+        var usersPerPage = 6;
+        var firebaseConfig = {
+             apiKey: "AIzaSyDZWOTCQhfVcgg6wpbGChU5y764uwUkNWE",
+             authDomain: "um5s-3a7a7.firebaseapp.com",
+              databaseURL: "https://um5s-3a7a7-default-rtdb.firebaseio.com",
+             projectId: "um5s-3a7a7",
+              storageBucket: "um5s-3a7a7.appspot.com",
+              messagingSenderId: "726053879511",
+               appId: "1:726053879511:web:678eaf165ef3814a1a7a92",
+                 measurementId: "G-R6N43CFYND"
+        };
+        firebase.initializeApp(firebaseConfig);
+       /************************************Recuperer uid de l'utilisateur selectionné*******************************************/
+       function getParameterByName(name, url) {
+                if (!url) url = window.location.href;
+                name = name.replace(/[\[\]]/g, "\\$&");
+                var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                    results = regex.exec(url);
+                if (!results) return null;
+                if (!results[2]) return '';
+                return decodeURIComponent(results[2].replace(/\+/g, " "));
+        }
+
+            // Récupérer la valeur du paramètre "userId" de l'URL
+            var userIdFromURL = getParameterByName('userId');
+
+            /*document.getElementById('show').addEventListener('click', function() {
+            
+        });*/
+        window.onload = function() {
+            getUserProfiles(userIdFromURL);
+        };
+        function goBack() {
+            window.location.href = '../search/search.html';
+        }
+        /************************************RECUPERER PHOTO DE PROFIL**********************/
+        function getUserProfile(uid) {
+                firebase.database().ref('users/' + uid).once('value').then(function(snapshot) {
+                    var userData = snapshot.val();
+                    document.getElementById('name').innerText=userData.nom
+                    if (userData) {
+                        if (userData.profileImageUrl) {
+                            document.getElementById('profile-image').src = userData.profileImageUrl;
+                        } else {
+                            document.getElementById('profile-image').src = 'http://bootdey.com/img/Content/avatar/avatar1.png';
+                        }
+                        
+                       
+                    }
+                }).catch(function(error) {
+                    console.log("Error getting user data:", error);
+                });
+        }  
+
+        firebase.auth().onAuthStateChanged(function(user) {
+            if (user) {
+        // L'utilisateur est connecté, récupérer l'UID
+                var uid = user.uid;
+                getUserProfile(uid)
+               
+            } else {
+                window.location.href = '../login/login.html';
+            }
+            }); 
+            function getUserProfiles(uid) {
+                firebase.database().ref('users/' + uid).once('value').then(function(snapshot) {
+                    var userData = snapshot.val();
+                    if (userData) {
+                        
+                        document.getElementById('Identite').value=userData.cin || '';
+                        document.getElementById('cne').value=userData.cne || '';
+                        document.getElementById('genre').value= userData.genre || '';
+                        document.getElementById('tel').value= userData.tel || '';
+                        document.getElementById('adress').value= userData.adresse || '';
+                        document.getElementById('date').value= userData.birthDay || '';
+                        document.getElementById('anne-diplom').value= userData.promotion || '';
+                        document.getElementById('fil').value = userData.filiere || '';
+                        
+                        document.getElementById('school').value= userData.ecole || '';
+                        document.getElementById('namee').value=userData.nom || '';
+                        document.getElementById('university').value= userData.university || '';
+                        document.getElementById('anne-inscription').value= userData.inscripyear || '';
+                        if (userData.poste) {
+                            document.getElementById('poste').value = userData.work || '';
+                        } else {
+                            document.getElementById('poste').value  = 'Etudiant ';
+                        }
+                        console.log("le nom est",document.getElementById('namee').value)
+                    }
+                }).catch(function(error) {
+                    console.log("Error getting user data:", error);
+                });
+                
+            }  
+</script>
+</html>
+
+
