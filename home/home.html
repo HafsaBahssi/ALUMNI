@@ -316,24 +316,11 @@
             }
             }); 
            
-    function getUserProfile(uid) {
+            function getUserProfile(uid) {
                 firebase.database().ref('users/' + uid).once('value').then(function(snapshot) {
                     var userData = snapshot.val();
+                    document.getElementById('name').innerText=userData.nom
                     if (userData) {
-                      
-                        /*document.getElementById('Identite').value=userData.cin || '';
-                        document.getElementById('cne').value=userData.cne || '';
-                        document.getElementById('genre').value= userData.genre || '';
-                        document.getElementById('tel').value= userData.tel || '';
-                        document.getElementById('adress').value= userData.adresse || '';
-                        document.getElementById('date').value= userData.birthDay || '';
-                        document.getElementById('anne-diplom').value= userData.promotion || '';
-                        document.getElementById('fil').value = userData.filiere || '';
-                        document.getElementById('poste').value = userData.work || '';
-                        document.getElementById('school').value= userData.ecole || '';
-                        document.getElementById('email').value= userData.email || '';
-                        document.getElementById('university').value= userData.university || '';
-                        document.getElementById('anne-inscription').value= userData.inscripyear || '';*/
                         if (userData.profileImageUrl) {
                             document.getElementById('profile-image').src = userData.profileImageUrl;
                         } else {
@@ -345,11 +332,10 @@
                 }).catch(function(error) {
                     console.log("Error getting user data:", error);
                 });
-            }  
-
+        }  
      
             
-    window.addEventListener('load',CheckCred);
+   
     Signoutbtn.addEventListener('click',Signoutfct);
 </script>
 </html>
