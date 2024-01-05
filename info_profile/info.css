@@ -199,6 +199,7 @@ h1{
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+   
     
 }
 
@@ -287,7 +288,7 @@ h1{
 form .fields .input-field{
     display: flex;
     flex-direction: column;
-    width: calc(100% / 3 - 15px);
+    width: calc(100% / 3 - 10px);
 }
 .input-field label{
     font-size: 15px;
@@ -327,7 +328,7 @@ form .fields .input-field{
     color: #fff;
     border-radius: 6px;
     margin: 25px 0;
-    background-color: 337eff;
+    background-color: #337eff;
     transition: all 0.3s linear;
     cursor: pointer;
 
