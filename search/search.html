@@ -1,0 +1,383 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+    
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+        <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+        <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+        <title>Document</title>
+        <link rel="stylesheet" href="search.css">
+    
+    </head>
+        <body >
+            <!-----***************************Preloader de la page************************--> 
+            <div class="loader_bg">
+            <div class="loader"> </div>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+            <script>
+                setTimeout(function(){
+                    $('.loader_bg').fadeToggle();
+                }, 1000);
+            </script>
+            </div>
+        <!-----***************************Header************************--> 
+            <header>
+            <script src="search.js"></script>
+            <img src="../images/logo2-removebg-preview.png" class="icon" alt="">
+            <ul class="nav justify-content-end">
+    
+                <li class="nav-item dropdown">
+                    <a class="nav-link " href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: 1.3rem;">
+                        <div style="display: flex; align-items: center;">
+                            <img class="img-account-profile rounded-circle mb-2" src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="" id="profile-image" style="width: 50px;">
+                            <p id="name" style="margin-left: 0.5rem; margin-bottom: 0;"></p>
+                        </div>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown" >
+                        <!-- Contenu du menu déroulant -->
+                        
+                        <a class="dropdown-item" href="../show_info/show.html">Compte</a> 
+                        <a class="dropdown-item" href="#" id="signout"  >Deconnexion</a>
+                        
+                    </div>
+                </li>
+                </ul>
+            </header>
+        <!-----***************************SIdebar************************--> 
+
+            <div class="navwrapper">
+            <div class="nave secondnav" style="display: none;">
+                <div class="navbutton selected">
+                    <div class="navicon">
+                        <iconify-icon icon="material-symbols:home-outline"></iconify-icon>
+                    </div>
+                    <div class="navlabel">
+                        Home
+                    </div>
+                </div>
+                <div class="navbutton demoanimhover">
+                    <div class="navicon">
+                        <iconify-icon icon="material-symbols:search"></iconify-icon>
+                    </div>
+                    <div class="navlabel">
+                        Search
+                    </div>
+                </div>
+                <div class="navbutton">
+                    <div class="navicon">
+                        <iconify-icon icon="codicon:account" ></iconify-icon>
+                    </div>
+                    <div class="navlabel">
+                        Edit Profile
+                    </div>
+                </div>
+            </div>
+            <div class="nave mainnav">
+                <div class="navbutton selected">
+                    <div class="navicon">
+                        <iconify-icon icon="material-symbols:home-outline"></iconify-icon>
+                    </div>
+                    <div class="navlabel">
+                        <a href="../home/home.html" style=" text-decoration: none;color:rgb(21, 0, 80);" >Home</a> 
+                    </div>
+                </div>
+                <div class="navbutton demoanimhover">
+                    <div class="navicon">
+                        <iconify-icon icon="material-symbols:search"></iconify-icon>
+                    </div>
+                    <div class="navlabel">
+                        <a href="../search/search.html" style=" text-decoration: none;color:rgb(21, 0, 80);">Search</a>
+                    </div>
+                </div>
+                <div class="navbutton">
+                    <div class="navicon">
+                        <iconify-icon icon="codicon:account" ></iconify-icon>
+                    </div>
+                    <div class="navlabel">
+                        <a href="../info_profile/info.html" style=" text-decoration: none;color:rgb(21, 0, 80);"> Edit Profile</a>  
+                    </div>
+                </div>
+            </div>
+            </div>
+            <!--*******************************CORPS *******************--> 
+
+            <div class="bg-light py-3">
+                <div class="container">
+                    <div class="row g-2">
+                        <div class="col-md-4">
+                            <input type="text" class="form-control" id="searchQuery" placeholder="Qui recherchez-vous?" aria-label="Qui recherchez-vous?">
+                        </div>
+                        <div class="col-md-3">
+                            <select id="inputFiliere" class="form-select">
+                                    <option value="">Toutes les filliéres</option>
+                                    <option value="Informatique">Informatique</option>
+                                    <option value="Mathématique">Mathématique</option>
+                                    <option value="Physique">Physique</option>
+                                    <option value="Anglais">Anglais</option>
+                                    <option value="Francais">Francais</option>
+                                    <option value="Arabe">Arabe</option>                        
+                            </select>
+                        </div>
+                        <div class="col-md-4" style="width: 270px;">
+                            <input type="text" class="form-control" id="inputPromotion" placeholder="Les promotions" aria-label="Les promotions">
+                        </div>
+                       
+                        <div class="col-md-2">
+                            <button class="btn btn-primary w-100" id="searchButton">RECHERCHER</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- User profiles grid -->
+            <div class="row" id="usersContainer">
+                <!-- User profiles will be inserted here dynamically with JavaScript -->
+            </div>
+            <nav aria-label="Page navigation">
+                <div id="paginationControls"></div>
+                <ul class="pagination" id="paginationContainer">
+                    <!-- Pagination buttons will be added here by JavaScript -->
+                </ul>
+            </nav>
+
+
+
+
+
+
+
+        <!-----***************************FOOTER************************--> 
+            <div class="footer-basic">
+            <footer>
+                <div class="social"><a href="https://www.instagram.com/um5rabat/"><iconify-icon icon="fluent-mdl2:website"></iconify-icon></a><a href="http://www.um5.ac.ma/um5/"><i class="icon ion-social-snapchat"></i></a><a href="https://twitter.com/um5rabat?lang=fr"><i class="icon ion-social-twitter"></i></a><a href="https://www.facebook.com/groups/2086177608373411"><i class="icon ion-social-facebook"></i></a></div>
+                <ul class="list-inline">
+                    <li class="list-inline-item"><a href="../home/home.html">Home</a></li>
+                    <li class="list-inline-item"><a href="#">Search</a></li>
+                    <li class="list-inline-item"><a href="info.html">Profile</a></li>
+                    
+                </ul>
+                <p class="copyright">ALUMNI © 2024</p>
+            </footer>
+            </div>
+        
+    </body>
+<script src="https://www.gstatic.com/firebasejs/6.0.2/firebase.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+<script>
+    $(document).ready(function() {
+            $('a[href^="#"]').on('click', function(event) {
+                event.preventDefault();
+                var target = this.hash;
+                $('html, body').animate({
+                    scrollTop: $(target).offset().top
+                }, 800, function(){
+                    window.location.hash = target;
+                });
+            });
+        });
+    let UserCreds=JSON.parse(sessionStorage.getItem("user-creds"));
+    let UserInfo=JSON.parse(sessionStorage.getItem("user-info"));
+    let Signoutbtn=document.getElementById('signout');
+    let name=document.getElementById('name');
+    
+    let Signoutfct=()=>{
+        sessionStorage.removeItem("user-creds");
+        sessionStorage.removeItem("user-info");
+        window.location.href = '../login/login.html';
+
+    }
+    let CheckCred=()=>{
+        if(!sessionStorage.getItem("user-creds"))
+        window.location.href = '../login/login.html';
+        else{
+            name.innerText= UserInfo.username.toUpperCase();
+            
+        }
+    }
+    /*****************************Les cards********************************/
+        var currentPage = 1;
+        var usersPerPage = 6;
+        var firebaseConfig = {
+             apiKey: "AIzaSyDZWOTCQhfVcgg6wpbGChU5y764uwUkNWE",
+             authDomain: "um5s-3a7a7.firebaseapp.com",
+              databaseURL: "https://um5s-3a7a7-default-rtdb.firebaseio.com",
+             projectId: "um5s-3a7a7",
+              storageBucket: "um5s-3a7a7.appspot.com",
+              messagingSenderId: "726053879511",
+               appId: "1:726053879511:web:678eaf165ef3814a1a7a92",
+                 measurementId: "G-R6N43CFYND"
+        };
+        firebase.initializeApp(firebaseConfig);
+        /***************************** FOnction qui cree Les cards********************************/
+        function createUserProfile(userData, userId) {
+            console.log("Creating profile card for:", userId); // Debug: Log the userId
+            var userDiv = document.createElement('div');
+            userDiv.className = 'col-lg-4 col-md-6 user-card';
+            userDiv.innerHTML = `
+                    <div class="card text-center"> <!-- Added text-center here to center all card contents -->
+                        <img src="${userData.profileImageUrl || 'http://bootdey.com/img/Content/avatar/avatar1.png'}" class="card-img-top img-account-profile rounded-circle mx-auto d-block" style="width: 70px;"alt="Profile Picture">
+                        <div class="card-body">
+                                            <p><strong>Nom complet:</strong> ${userData.nom || ''} </p>
+                                            <p><strong>Genre:</strong> ${userData.genre || 'N/A'}</p>
+                                            
+                                            <p><strong>Filiére actuelle:</strong> ${userData.filiere || 'N/A'}</p>
+                                            <p><strong>Promotion actuelle:</strong> ${userData.promotion || 'N/A'}</p>
+                                            <a href="person.html?userId=${userId}" class="btn btn-primary mt-2">Voir Profil</a>
+                                            <a href="mailto:${userData.email}" class="btn btn-secondary mt-2">Envoyer Message</a>
+
+
+                        </div>
+                    </div>
+            `;
+            return userDiv;
+        }
+            /*****************************Les id de l'utilisateur********************************/
+
+        function openChat(userId) {
+            // For now, just log the userId. You'll need to implement the chat functionality.
+            console.log("Open chat with user ID:", userId);
+            // Here, you can redirect to a chat page or open a modal for chatting.
+        }
+        /*****************************afficher les profils des utilisateurs sur la page en fonction de la pagination********************************/
+        function renderPage(page) {
+            var dbRef = firebase.database().ref('users');
+            dbRef.once('value').then(function(snapshot) {
+                const usersContainer = document.getElementById('usersContainer');
+                usersContainer.innerHTML = '';
+                var usersArray = [];
+                snapshot.forEach(function(userSnapshot) {
+                    var userId = userSnapshot.key;
+                    var userData = userSnapshot.val();
+                    usersArray.push({ userId, ...userData });
+                });
+
+                var startIndex = (page - 1) * usersPerPage;
+                var endIndex = startIndex + usersPerPage;
+                var paginatedUsers = usersArray.slice(startIndex, endIndex);
+
+                paginatedUsers.forEach(function(user) {
+                    var userCard = createUserProfile(user, user.userId);
+                    usersContainer.appendChild(userCard);
+                });
+
+                renderPagination(usersArray.length, page);
+            }).catch(function(error) {
+                console.error("Error fetching user data:", error);
+            });
+        }
+        /******************************** afficher les contrôles de pagination en bas de la liste des utilisateurs********************************/
+        function renderPagination(totalUsers, currentPage) {
+            var totalPages = Math.ceil(totalUsers / usersPerPage);
+            var paginationContainer = document.getElementById('paginationContainer');
+            paginationContainer.innerHTML = ''; // Clear existing pagination controls
+
+            for (var i = 1; i <= totalPages; i++) {
+                var pageItem = document.createElement('li');
+                pageItem.className = 'page-item ' + (i === currentPage ? 'active' : '');
+
+                var pageLink = document.createElement('a');
+                pageLink.className = 'page-link';
+                pageLink.href = '#';
+                pageLink.innerText = i;
+                pageLink.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    currentPage = parseInt(this.innerText);
+                    renderPage(currentPage);
+                });
+
+                pageItem.appendChild(pageLink);
+                paginationContainer.appendChild(pageItem);
+            }
+        }
+        /*****************************Afficher les cards lors de load de la page********************************/
+        window.onload = function() {
+            renderPage(currentPage); // Start on the current page, which is set to 1 initially
+        };
+        /*****************************************Faire des recherche******************************************/
+        document.getElementById('searchButton').addEventListener('click', function() {
+            performSearch();
+        });
+
+        /*****************************Fonction de traitement de recherche********************************/
+        function performSearch() {
+            var query = document.getElementById('searchQuery').value.toLowerCase();
+            var selectedPromotion = document.getElementById('inputPromotion').value;
+            var selectedFiliere = document.getElementById('inputFiliere').value;
+            // Reference to the Firebase Realtime Database
+            var dbRef = firebase.database().ref('users');
+            dbRef.once('value').then(function(snapshot) {
+                var filteredUsers = [];
+                snapshot.forEach(function(userSnapshot) {
+                    var userData = userSnapshot.val();
+                    console.log( userData.nom)
+                   
+                    // Adjust this logic based on your user data structure and what you want to search by
+                    if (
+                        ((selectedPromotion === '' || userData.promotion === selectedPromotion) &&
+                        (selectedFiliere === '' || userData.filiere === selectedFiliere)) &&
+                        (
+                            userData.nom.toLowerCase().includes(query) 
+                        )
+                    ) {
+                        filteredUsers.push(userData);
+                    }
+                });
+                renderPageWithSearchResults(filteredUsers);
+            }).catch(function(error) {
+                console.error("Error fetching user data:", error);
+            });
+        }
+        /*******************************responsable du rendu des résultats de recherche************************************/
+        function renderPageWithSearchResults(users) {
+            const usersContainer = document.getElementById('usersContainer');
+            usersContainer.innerHTML = ''; // Clear existing content
+            users.forEach(function(userData) {
+                var userCard = createUserProfile(userData);
+                usersContainer.appendChild(userCard);
+            });
+
+        }
+        /************************************RECUPERER PHOTO DE PROFIL**********************/
+        function getUserProfile(uid) {
+                firebase.database().ref('users/' + uid).once('value').then(function(snapshot) {
+                    var userData = snapshot.val();
+                    document.getElementById('name').innerText=userData.nom
+                    if (userData) {
+                        if (userData.profileImageUrl) {
+                            document.getElementById('profile-image').src = userData.profileImageUrl;
+                        } else {
+                            document.getElementById('profile-image').src = 'http://bootdey.com/img/Content/avatar/avatar1.png';
+                        }
+                        
+                       
+                    }
+                }).catch(function(error) {
+                    console.log("Error getting user data:", error);
+                });
+        }  
+
+        firebase.auth().onAuthStateChanged(function(user) {
+            if (user) {
+        // L'utilisateur est connecté, récupérer l'UID
+                var uid = user.uid;
+                getUserProfile(uid)
+               
+            } else {
+                window.location.href = '../login/login.html';
+            }
+            }); 
+
+</script>
+</html>
+
+
